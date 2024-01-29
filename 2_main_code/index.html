@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Line with Perpendicular Bar Ends Example</title>
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/two.js/0.7.0/two.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs"></script>
+</head>
+<body>
+    <div class="container">
+            <div class="myCanvas" id="canvas_1">
+              <h3>Make your beam select the support</h3>
+              <div class="variable-container">
+                <div class="points">
+                  <p>1)Select the point:-</p> 
+                <label>
+                  <input type="radio" id="pointA" name="point" value="A"> A
+                </label>
+                <label>
+                  <input type="radio" id="pointB" name="point" value="B"> B
+                </label>
+              </div>
+              
+              <div class="supports">
+                <p>2)Select type of support:-</p> 
+              <label>
+                <input type="radio" id="supportPin" name="support" value="pin"> Pin Support
+              </label>
+              <label>
+                <input type="radio" id="supportRoller" name="support" value="roller"> Roller Support
+              </label>
+              <label>
+                <input type="radio" id="supportFree" name="support" value="free"> Free End
+              </label>
+              <label>
+                <input type="radio" id="supportFixed" name="support" value="fixed"> Fixed End
+              </label>
+            </div>
+            
+            <div class="load-type">
+              <p>3)Select load type:-</p> 
+              <label>
+                <input type="radio" id="ltypePointLoad" name="ltype" value="PointLoad"> Point Load
+              </label>
+              <label>
+                <input type="radio" id="ltypeUDL" name="ltype" value="UDL"> UDL
+              </label>
+              <label>
+                <input type="radio" id="ltypeMoment" name="ltype" value="Moment">Moment
+              </label>
+              <label>
+                <input type="radio" id="ltypeUVL" name="ltype" value="UVL"> UVL
+              </label>
+            </div>
+
+            <div class="load-point">
+              <p>3)Select load Point:-	&nbsp;	&nbsp;	&nbsp;	&nbsp;	</p> 
+              <label>
+                <input type="radio" id="lPointA" name="lPoint" value="A"> A
+              </label>
+              <label>
+                <input type="radio" id="lPointB" name="lPoint" value="B"> B
+              </label>
+              <label>
+                <input type="radio" id="lPointC" name="lPoint" value="C"> C
+              </label>
+              <label for="lFulllength">
+                <input type="radio" id="lFulllength" name="lpoint" value="D"> Full length
+              </label>
+            </div>
+              </div>
+              <div class="draw-btn">
+                <button type="submit">Draw</button>
+               </div>
+            </div>
+        </div>
+    </div>
+  
+  <script type="module" src="main.js"></script>
+</body>
+</html>

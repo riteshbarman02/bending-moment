@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 600px;
+}
+
+.myCanvas {
+    cursor: pointer;
+    transition: 0.4s;
+    width: 100vw;
+    overflow: hidden;
+    }
+
+.variable-container{
+    display: flex;
+    width: 450px;
+    flex-wrap: wrap;
+    padding: 15px;
+    margin-left: 5px;
+    justify-content: space-around;
+
+}
+.points{
+    display: flex;
+    flex-direction: column;
+}
+.supports{
+    display: flex;
+    flex-direction: column;
+
+}
+.load-type{
+    display: flex;
+    flex-direction: column;
+ 
+}
+.load-point{
+    display: flex;
+    flex-direction: column;
+ 
+}
+h3{
+    margin-left: 5px;
+}
+.draw-btn{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 200px;
+}
+
+@media  (max-width: 600px) {
+   .container{
+    width: 100vw;
+    margin-left: -15px;
+   }
+   .myCanvas{
+    width: 100vw;
+   }
+   h3{
+    text-align: center;
+   }
+   .draw-btn{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+}
+
