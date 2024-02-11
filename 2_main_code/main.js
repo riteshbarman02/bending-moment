@@ -178,15 +178,32 @@ var points16 = [
   new Two.Anchor(380, bmy),
   
 ];
-var points16 = [
+var points17 = [
   new Two.Anchor(50, bmy),
   new Two.Anchor(380, bmy -
      50),
-  new Two.Anchor(380, bmy),
-  
+  new Two.Anchor(380, bmy), 
 ];
-var graph3 = new Graph(two, points16, "#C2185B", "#C2185B", 0.5, 4);
-
+var points18= [
+  new Two.Anchor(50, bmy),
+  new Two.Anchor(50, bmy -
+     50),
+  new Two.Anchor(380, bmy-50), 
+  new Two.Anchor(380, bmy), 
+];
+var points19= [
+  new Two.Anchor(50, bmy),
+  new Two.Anchor(50, bmy -
+     50),
+  new Two.Anchor(230, bmy-50), 
+  new Two.Anchor(230, bmy), 
+];
+var points20= [
+  new Two.Anchor(50, bmy),
+  new Two.Anchor(50, bmy -
+     50),
+];
+var graph4 = new Graph(two, points19, "#C2185B", "#C2185B", 0.5, 4);
 
 var slider = new eigenLine(two, 50, slider_y, 380, slider_y, 4, "black");
 
@@ -462,6 +479,29 @@ function addSupport() {
       var graph4 = new Graph(two, points6, "#276BB0", "#276BB0", 0.5, 4);
       two.update();
     }
+    if (loadValue === "Moment") {
+      if(lpointValue==="c"){
+        console.log("moment ka graph");
+      var graph3 = new Graph(two, points13, "#276BB0", "#276BB0", 0.5, 4);
+      var graph2 = new Graph(two, points14, "#C2185B", "#C2185B", 0.5, 4);
+      var graph4 = new Graph(two, points15, "#C2185B", "#C2185B", 0.5, 4);
+      two.update();
+      }
+      else  if(lpointValue==="A"){
+        console.log("moment ka graph");
+        var graph3 = new Graph(two, points13, "#276BB0", "#276BB0", 0.5, 4);
+        var graph2 = new Graph(two, points16, "#C2185B", "#C2185B", 0.5, 4);
+
+        two.update();
+        }
+        else  if(lpointValue==="B"){
+          console.log("moment ka graph");
+          var graph3 = new Graph(two, points13, "#276BB0", "#276BB0", 0.5, 4);
+          var graph2 = new Graph(two, points17, "#C2185B", "#C2185B", 0.5, 4);
+  
+          two.update();
+          }
+    }
   }
   else 
   if ((supportValueforA === "fixed" && supportValueforB === "free")||(supportValueforB === "fixed" && supportValueforA === "free")) {
@@ -486,11 +526,25 @@ function addSupport() {
       var graph4 = new Graph(two, points12, "#C2185B", "#C2185B", 0.5, 4);
       two.update();
     }
-    else if (loadValue === "Moment") {
-      console.log("UVl ka graph");
-      var graph3 = new Graph(two, points11, "#276BB0", "#276BB0", 0.5, 4);
-      var graph4 = new Graph(two, points12, "#C2185B", "#C2185B", 0.5, 4);
+    if (loadValue === "Moment") {
+      if(lpointValue==="B"){
+        console.log("moment ka graph");
+      var graph3 = new Graph(two, points18, "#276BB0", "#276BB0", 0.5, 4);
+
       two.update();
+      }
+      else  if(lpointValue==="C"){
+        console.log("moment ka graph");
+        var graph3 = new Graph(two, points19, "#276BB0", "#276BB0", 0.5, 4);
+
+        two.update();
+        }
+        else  if(lpointValue==="A"){
+          console.log("moment ka graph");
+          var graph3 = new Graph(two, points20, "#276BB0", "#276BB0", 0.5, 4);
+  
+          two.update();
+          }
     }
 
   }
