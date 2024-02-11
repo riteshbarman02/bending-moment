@@ -68,5 +68,14 @@ h3{
     display: flex;
     justify-content: center;
 }
+.variable-container{
+    display: flex;
+    width: 380px;
+    flex-wrap: wrap;
+    padding: 15px;
+    margin-left: 5px;
+    justify-content: space-around;
+
+}
 }
 

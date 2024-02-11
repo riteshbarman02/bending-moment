@@ -11,7 +11,7 @@ var two = new Two({
   height: 900,
 }).appendTo(ob2);
 
-var domian = new eigenLine(two, 50, 30, 420, 30, 4, "black");
+var domian = new eigenLine(two, 50, 30, 380, 30, 4, "black");
 //upper blue rectangle
 var points1 = [
   new Two.Anchor(50, sfy),
@@ -23,92 +23,117 @@ var points1 = [
 var points2 = [
   new Two.Anchor(230, sfy),
   new Two.Anchor(230, sfy + 70),
-  new Two.Anchor(420, sfy + 70),
-  new Two.Anchor(420, sfy),
+  new Two.Anchor(380, sfy + 70),
+  new Two.Anchor(380, sfy),
 ];
 //lower pink Triangle
 var points3 = [
   new Two.Anchor(50, bmy),
   new Two.Anchor(230, bmy - 50),
-  new Two.Anchor(420, bmy),
+  new Two.Anchor(380, bmy),
 ];
 //graph for bending moment for Udl
 var points4 = [
   new Two.Anchor(50, bmy),
   ...Array.from({ length: 100 }, (_, i) => {
     var t = (i / 100) * Math.PI;
-    var x = 50 + (t / Math.PI) * 370;
+    var x = 50 + (t / Math.PI) * 330;
     var y = bmy - Math.sin(t) * 100;
     return new Two.Anchor(x, y);
   }),
-  new Two.Anchor(420, bmy),
+  new Two.Anchor(380, bmy),
 ];
+
 //graph for shear force for Uvl
 var points5 = [
   new Two.Anchor(50, sfy),
   ...Array.from({ length: 100 }, (_, i) => {
     var t = (i / 100) * Math.PI;
-    var x = 50 + (t / Math.PI) * 500;
+    var x = 50 + (t / Math.PI) * 440;
     var y = sfy - Math.cos(t) * 60;
-    if (x > 420) {
-      x = 420;
+    if (x > 380) {
+      x = 380;
       y = sfy + 42;
     }
     return new Two.Anchor(x, y);
   }),
-  new Two.Anchor(420, sfy),
+  new Two.Anchor(380, sfy),
 ];
+
 var points6 = [
   new Two.Anchor(50, bmy),
   ...Array.from({ length: 100 }, (_, i) => {
     var t = (i / 100) * Math.PI;
     var angle = Math.PI / 4; // 45 degrees in radians
 
-    var x = 50 + (t / Math.PI) * angle * 370;
-    var y = bmy - Math.sin(t * angle) * 60;
+    var x = 50+   (t*1.8/ Math.PI) * angle * 200;
+   
+    var y = bmy - Math.sin(t * angle) * 80;
+    if(x>50){
+      x=x+i/2.7;
+      y=bmy - Math.sin(t * angle) * 96;
+    }
+    else
     x = x + i;
 
     return new Two.Anchor(x, y);
   }),
-  new Two.Anchor(420, bmy),
+  new Two.Anchor(380, bmy),
 ];
+
 
 var points7 = [
   new Two.Anchor(50, sfy),
   new Two.Anchor(50, sfy - 70),
-  new Two.Anchor(420, sfy - 70),
-  new Two.Anchor(420, sfy),
+  new Two.Anchor(380, sfy - 70),
+  new Two.Anchor(380, sfy),
 ];
+
 var points8 = [
   new Two.Anchor(50, sfy),
   new Two.Anchor(50, sfy - 70),
-  new Two.Anchor(420, sfy),
+  new Two.Anchor(380, sfy),
 ];
+
 var points9 = [
   new Two.Anchor(50, bmy),
   new Two.Anchor(50, bmy + 50),
-  new Two.Anchor(420, bmy),
+  new Two.Anchor(380, bmy),
 ];
+
 var points10 = [
   new Two.Anchor(50, bmy),
   new Two.Anchor(50,bmy+70),
-  ...Array.from({ length: 100 }, (_, i) => {
-    var x = 50 + i**2.8;
+  ...Array.from({ length: 10 }, (_, i) => {
+    var x = 50 + i**2.79;
     var y = bmy+70- i**2;
+    if(x>380&&y<bmy){
+      x=350;
+      y=bmy;
+    }
     return new Two.Anchor(x, y);
+   
   }),
-  new Two.Anchor(420, bmy),
+  new Two.Anchor(350, bmy),
 ];
+
+
 var points11 = [
   new Two.Anchor(50, sfy),
   new Two.Anchor(50,sfy-70),
   ...Array.from({ length: 100 }, (_, i) => {
-    var x = 50 + i**2.8;
+    var x = 50 + i**2.7;
     var y = sfy-70+ i**2;
+    if(x>380){
+      x=380;
+      y=sfy;
+    }
     return new Two.Anchor(x, y);
   }),
-  new Two.Anchor(420, sfy),
+  new Two.Anchor(380, sfy),
 ];
+
+
 var points12= [
   new Two.Anchor(50, bmy),
   new Two.Anchor(50,bmy+70),
@@ -120,13 +145,50 @@ var points12= [
     }
     else if(x>300)
     y=bmy+2
+    if(x>410){
+      x=370;
+      y=bmy;
+    }
     return new Two.Anchor(x, y);
   }),
-  new Two.Anchor(420, bmy),
+  new Two.Anchor(380, bmy),
+];
+var points13 = [
+  new Two.Anchor(50, sfy),
+  new Two.Anchor(50, sfy - 70),
+  new Two.Anchor(380, sfy - 70),
+  new Two.Anchor(380, sfy),
 ];
 
+var points14 = [
+  new Two.Anchor(50, bmy),
+  new Two.Anchor(230, bmy - 50),
+  new Two.Anchor(230, bmy),
+  
+];
+var points15 = [
+  new Two.Anchor(230, bmy),
+  new Two.Anchor(230, bmy + 50),
+  new Two.Anchor(380, bmy),
+  
+];
+var points16 = [
+  new Two.Anchor(50, bmy),
+  new Two.Anchor(50, bmy + 50),
+  new Two.Anchor(380, bmy),
+  
+];
+var points16 = [
+  new Two.Anchor(50, bmy),
+  new Two.Anchor(380, bmy -
+     50),
+  new Two.Anchor(380, bmy),
+  
+];
+var graph3 = new Graph(two, points16, "#C2185B", "#C2185B", 0.5, 4);
 
-var slider = new eigenLine(two, 50, slider_y, 420, slider_y, 4, "black");
+
+var slider = new eigenLine(two, 50, slider_y, 380, slider_y, 4, "black");
 
 var mouse = new Two.Vector();
 var yaxis = two.makeLine(230, 30, 230, slider_y);
@@ -141,7 +203,7 @@ yaxis1.dashes = [20, 10];
 yaxis1.noFill();
 yaxis1.stroke = "#0000002E";
 
-var yaxis2 = two.makeLine(420, 30, 420, slider_y);
+var yaxis2 = two.makeLine(380, 30, 380, slider_y);
 yaxis2.linewidth = 4;
 yaxis2.dashes = [20, 10];
 yaxis2.noFill();
@@ -160,10 +222,10 @@ circle.stroke = "#000000";
 circle.linewidth = 3;
 
 var sf_y_axis = new eigenLine(two, 35, sfy - 80, 35, sfy + 80, 4, "black");
-var sf_x_axis = new eigenLine(two, 50, sfy, 420, sfy, 4, "black");
+var sf_x_axis = new eigenLine(two, 50, sfy, 380, sfy, 4, "black");
 
 var bm_y_axis = new eigenLine(two, 35, bmy - 80, 35, bmy + 80, 4, "black");
-var bm_x_axis = new eigenLine(two, 50, bmy, 420, bmy, 4, "black");
+var bm_x_axis = new eigenLine(two, 50, bmy, 380, bmy, 4, "black");
 
 two.update();
 
@@ -218,19 +280,6 @@ function handlelPointChange(event) {
 }
 if (loadValue === "UDL"||loadValue==="UVL") {
   lpointD.checked = true;
-  // if (!lpointD) {
-  //   console.log("Adding Full length option...");
-  //   var loadTypeContainer = document.querySelector(".load-point");
-  //   var newLabel = document.createElement("label");
-  //   newLabel.htmlFor = "lFulllength";
-  //   newLabel.innerHTML = `
-  //     <input type="radio" id="lFulllength" name="lpoint" value="D" checked> Full length
-  //   `;
-  //   loadTypeContainer.appendChild(newLabel);
-  // }else
-  // {
-  //   lpointD.checked = true;
-  // }
 } 
 else if (loadValue === "PointLoad"||loadValue==="Moment"){
   var fullLengthLabel = document.querySelector('label[for="lFulllength"]');
@@ -326,11 +375,11 @@ function addSupport() {
 
 
     if (supportValue === "pin") {
-      var line4 = two.makeLine(400, 53, 445, 53);
+      var line4 = two.makeLine(360, 53, 400, 53);
       line4.linewidth = 2;
-      vertex1 = new Two.Vector(410, 52);
-      vertex2 = new Two.Vector(430, 52);
-      vertex3 = new Two.Vector(420, 40);
+      vertex1 = new Two.Vector(370, 52);
+      vertex2 = new Two.Vector(390, 52);
+      vertex3 = new Two.Vector(380, 40);
       var line1 = new Two.Line(vertex1.x, vertex1.y, vertex2.x, vertex2.y);
       var line2 = new Two.Line(vertex2.x, vertex2.y, vertex3.x, vertex3.y);
       var line3 = new Two.Line(vertex3.x, vertex3.y, vertex1.x, vertex1.y);
@@ -338,7 +387,7 @@ function addSupport() {
       two.add(line1, line2, line3);
       var lines = [];
       for (var i = 0; i < 10; i++) {
-        x1 = 400 + i * 5;
+        x1 = 360 + i * 5;
         x2 = x1 - 5;
         y1 = 54;
         y2 = 57;
@@ -352,15 +401,15 @@ function addSupport() {
       supportValueforB = "pin";
       two.update();
     } else if (supportValue === "roller") {
-      rollerPosX = 420;
+      rollerPosX = 380;
       rollerPosY = 47;
       var roller = two.makeCircle(rollerPosX, rollerPosY, 7);
-      var line4 = two.makeLine(400, 53, 445, 53);
+      var line4 = two.makeLine(360, 53, 400, 53);
       line4.linewidth = 2;
       supportValueforB = "roller";
       var lines = [];
       for (var i = 0; i < 10; i++) {
-        x1 = 400 + i * 5;
+        x1 = 360+ i * 5;
         x2 = x1 - 5;
         y1 = 54;
         y2 = 57;
@@ -375,7 +424,7 @@ function addSupport() {
       for (var i = 0; i < 12; i++) {
         var y1 = 0 + i * 5;
         var x2 = 425;
-        var x1 = 420;
+        var x1 = 380;
         var y2 = y1 + 5;
 
         lines.push(two.makeLine(x1, y1, x2, y2));
@@ -415,7 +464,7 @@ function addSupport() {
     }
   }
   else 
-  if ((supportValueforA === "fixed" && supportValueforB === "free")||(supportValueforB === "pin" && supportValueforA === "roller")) {
+  if ((supportValueforA === "fixed" && supportValueforB === "free")||(supportValueforB === "fixed" && supportValueforA === "free")) {
     if (loadValue === "PointLoad") {
       console.log("Pointload ka graph");
       var graph1 = new Graph(two, points7, "#276BB0", "#276BB0", 0.5, 4);
@@ -423,7 +472,7 @@ function addSupport() {
       two.update();
     }
 
-    if (loadValue === "UDL") {
+   else if (loadValue === "UDL") {
       console.log("Udl ka graph");
       points1[2].y = sfy;
       points2[1].y = sfy;
@@ -431,12 +480,19 @@ function addSupport() {
       var graph2 = new Graph(two, points10, "#C2185B", "#C2185B", 0.5, 4);
       two.update();
     }
-    if (loadValue === "UVL") {
+    else if (loadValue === "UVL") {
       console.log("UVl ka graph");
       var graph3 = new Graph(two, points11, "#276BB0", "#276BB0", 0.5, 4);
       var graph4 = new Graph(two, points12, "#C2185B", "#C2185B", 0.5, 4);
       two.update();
     }
+    else if (loadValue === "Moment") {
+      console.log("UVl ka graph");
+      var graph3 = new Graph(two, points11, "#276BB0", "#276BB0", 0.5, 4);
+      var graph4 = new Graph(two, points12, "#C2185B", "#C2185B", 0.5, 4);
+      two.update();
+    }
+
   }
 }
 
@@ -505,7 +561,7 @@ function pointermove(e) {
   mouse.x = e.clientX - getOffset(ob2).left;
   mouse.y = e.clientY - getOffset(ob2).top;
 
-  mouse.x = Math.min(mouse.x, 420);
+  mouse.x = Math.min(mouse.x, 380);
   mouse.x = Math.max(mouse.x, 50);
 
   yaxis.translation.set(mouse.x - 230, 0);
@@ -532,11 +588,11 @@ function drawPointLoad() {
   load.linewidth = 3;  
   }
   else if(lpointValue==="B"){
-    var load = two.makeArrow(420, 10, 420, 30);
+    var load = two.makeArrow(380, 10, 380, 30);
   load.linewidth = 3;  
   }
   else if(lpointValue==="C"){
-    var load = two.makeArrow(235, 10, 235, 30);
+    var load = two.makeArrow(200, 10, 200, 30);
   load.linewidth = 3;  
   }
  
@@ -545,7 +601,7 @@ function drawPointLoad() {
 
 function drawUDL() {
   var load = [];
-  for (var i = 0; i < 15; i++) {
+  for (var i = 0; i < 13; i++) {
     var x1 = 50 + i * 30;
     var y1 = 10;
     var y2 = 30;
@@ -558,7 +614,7 @@ function drawUDL() {
 
 function drawUVL() {
   var load = [];
-  for (var i = 0; i < 15; i++) {
+  for (var i = 0; i < 11; i++) {
     var x1 = 110 + i * 30;
     var y1 = 29 - i * 3;
     var y2 = 30;
@@ -568,8 +624,8 @@ function drawUVL() {
     load[i].linewidth = 3;
     load[i].stroke = "red";
   }
-  var line1 = two.makeLine(50, 30, 420, 0);
-  var line2 = two.makeLine(420, 0, 420, 30);
+  var line1 = two.makeLine(50, 30, 380, 0);
+  var line2 = two.makeLine(380, 0, 380, 30);
   line1.linewidth = 3;
   line2.linewidth = 3;
   two.update();
@@ -583,7 +639,7 @@ function drawmomentLoad() {
     centerY = 30 ;
   }
   else if(lpointValue==="B"){
-    centerX = 420 ;
+    centerX = 380 ;
     centerY = 30 ;
   }
   else if(lpointValue==="C"){
