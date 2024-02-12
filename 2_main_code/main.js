@@ -203,7 +203,6 @@ var points20= [
   new Two.Anchor(50, bmy -
      50),
 ];
-var graph4 = new Graph(two, points19, "#C2185B", "#C2185B", 0.5, 4);
 
 var slider = new eigenLine(two, 50, slider_y, 380, slider_y, 4, "black");
 
@@ -295,22 +294,37 @@ function handlelPointChange(event) {
   lpointValue = event.target.value;
   console.log(lpointValue);
 }
-if (loadValue === "UDL"||loadValue==="UVL") {
-  lpointD.checked = true;
-} 
-else if (loadValue === "PointLoad"||loadValue==="Moment"){
-  var fullLengthLabel = document.querySelector('label[for="lFulllength"]');
 
-  if (lpointD && lpointD.parentNode) {
-    console.log("Removing Full length option...");
-    lpointD.parentNode.removeChild(lpointD);
-  }
+document.addEventListener('DOMContentLoaded', function () {
+  // Select the load type radio buttons
+  var loadTypeRadios = document.querySelectorAll('input[name="ltype"]');
 
-  if (fullLengthLabel && fullLengthLabel.parentNode) {
-    console.log("Removing Full length label...");
-    fullLengthLabel.parentNode.removeChild(fullLengthLabel);
-  }
-}
+  // Select the "Full Length" radio button
+  var fullLengthRadio = document.getElementById('lFullLength');
+
+  // Add change event listener to the load type radio buttons
+  loadTypeRadios.forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      // Get the value of the selected load type
+      var loadValue = document.querySelector('input[name="ltype"]:checked').value;
+
+      // Check if loadValue is "UDL" or "UVL"
+      if (loadValue === "UDL" || loadValue === "UVL") {
+        // Show the "Full Length" radio button
+        fullLengthRadio.style.display = 'inline-block';
+        
+        // Check the "Full Length" radio button
+        fullLengthRadio.checked = true;
+      } else {
+        // Hide the "Full Length" radio button
+        fullLengthRadio.style.display = 'none';
+        
+        // Uncheck the "Full Length" radio button
+        fullLengthRadio.checked = false;
+      }
+    });
+  });
+});
 
 
 var drawBtn = document.querySelector(".draw-btn");
@@ -375,7 +389,7 @@ function addSupport() {
       var line = two.makeLine(48, 60, 48, 0);
       line.linewidth = 4;
       var lines = [];
-      for (var i = 0; i < 12; i++) {
+      for (var i = 0; i < 11; i++) {
         var y1 = 0 + i * 5;
         var x2 = 42;
         var x1 = 48;
@@ -438,7 +452,7 @@ function addSupport() {
       var line = two.makeLine(419, 0, 419, 60);
       line.linewidth = 4;
       var lines = [];
-      for (var i = 0; i < 12; i++) {
+      for (var i = 0; i < 11; i++) {
         var y1 = 0 + i * 5;
         var x2 = 425;
         var x1 = 380;
@@ -476,7 +490,7 @@ function addSupport() {
     if (loadValue === "UVL") {
       console.log("UVl ka graph");
       var graph3 = new Graph(two, points5, "#276BB0", "#276BB0", 0.5, 4);
-      var graph4 = new Graph(two, points6, "#276BB0", "#276BB0", 0.5, 4);
+      var graph4 = new Graph(two, points6,  "#C2185B", "#C2185B", 0.5, 4);
       two.update();
     }
     if (loadValue === "Moment") {
@@ -655,7 +669,7 @@ function drawPointLoad() {
 
 function drawUDL() {
   var load = [];
-  for (var i = 0; i < 13; i++) {
+  for (var i = 0; i < 12; i++) {
     var x1 = 50 + i * 30;
     var y1 = 10;
     var y2 = 30;
@@ -668,7 +682,7 @@ function drawUDL() {
 
 function drawUVL() {
   var load = [];
-  for (var i = 0; i < 11; i++) {
+  for (var i = 0; i < 10; i++) {
     var x1 = 110 + i * 30;
     var y1 = 29 - i * 3;
     var y2 = 30;
