@@ -1,4 +1,4 @@
-# Interactive Two.js Graph with Perpendicular Bar Ends
+# Bending Moment
 
 This project showcases an interactive graph using the Two.js library, allowing users to manipulate lines and shapes with perpendicular bar ends. The graph represents bending moments, shear forces, and a triangular region.
 
@@ -17,10 +17,20 @@ To run the project locally:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/riteshbarman02/avakalan-assignment
+    git clone https://github.com/riteshbarman02/bending-moment
     ```
 
-2. Open the `2_main_code` file in your editor.
+2. Open your folder on vs code .
+
+3. in the left mmost corner click on 5th icon .
+
+4. install an extention named live server.
+
+5. open `2_main_code` folder .
+
+6. open index.html and open the file with live server.
+
+7. now your file has been opened in your browser.
 
 ## Usage
 
